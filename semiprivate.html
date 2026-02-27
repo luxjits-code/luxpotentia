@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semi-Private Training — Lux Potentia</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAV OVERLAY -->
+  <div class="nav-overlay" id="navOverlay">
+    <button class="close-btn" onclick="toggleMenu()">Close</button>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="work-with-me.html">Work With Me</a>
+    <a href="courses.html">Get the App</a>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="index.html">Lux Potentia</a>
+    <div class="nav-right">
+      <button class="nav-menu-btn" onclick="toggleMenu()">Menu</button>
+      <a class="nav-cta" href="work-with-me.html">Work With Me</a>
+    </div>
+  </nav>
+
+  <div class="page-content">
+    <section class="form-page">
+
+      <div class="form-col">
+        <h1 class="section-title fade-up fade-up-delay-1">SEMI-PRIVATE TRAINING</h1>
+
+        <p class="form-desc fade-up fade-up-delay-2">
+          Get together a group of friends or coworkers to arrange a semi-private lesson or apply to join the next cohort of students. Classes take place in downtown Manhattan and are capped at 4-8 students to ensure each student receives individualized attention, with prices ranging from $50-70 per student. If you are interested in joining a semi-private training cohort curated by me, please fill out the form below. If you already have a group of 4+ friends or coworkers interested, you may simply email me at <a href="mailto:lux@luxpotentia.com" style="color:var(--red)">lux@luxpotentia.com</a>.
+        </p>
+
+        <form class="contact-form" action="#" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name <span>(required)</span></label>
+              <input type="text" name="first_name" required />
+            </div>
+            <div class="form-group">
+              <label>Last Name <span>(required)</span></label>
+              <input type="text" name="last_name" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email <span>(required)</span></label>
+            <input type="email" name="email" required />
+          </div>
+          <div class="form-check">
+            <input type="checkbox" name="newsletter" id="newsletter-semi" />
+            <label for="newsletter-semi">Sign up for news and updates</label>
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" name="phone" />
+          </div>
+          <div class="form-group">
+            <label>Social Media Handles <span>(required)</span></label>
+            <input type="text" name="social" placeholder="Include links to your social media handles" required />
+          </div>
+          <div class="form-group">
+            <label>General Availability <span>(required)</span></label>
+            <input type="text" name="availability" placeholder="General days, times, availability (example: evenings, weekends)" required />
+          </div>
+          <div class="form-group" style="margin-top:8px;">
+            <label>Are you applying to be part of a cohort or do you already have a group?</label>
+            <div class="form-check" style="margin-top:8px;">
+              <input type="radio" name="group_type" id="cohort" value="cohort" />
+              <label for="cohort">I want to join a cohort</label>
+            </div>
+            <div class="form-check" style="margin-top:6px;">
+              <input type="radio" name="group_type" id="existing" value="existing" />
+              <label for="existing">I already have a group</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Message <span>(required)</span></label>
+            <textarea name="message" placeholder="Tell me more about what you're looking to get out of training" required></textarea>
+          </div>
+          <div>
+            <button type="submit" class="btn-outline btn-sm">Submit</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="form-image-col">
+        <!-- Replace with your actual images -->
+        <img src="images/semiprivate-1.jpg" alt="Semi-private training" />
+        <img src="images/semiprivate-2.jpg" alt="Group training" style="margin-top:20px;" />
+      </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <a href="about.html">About</a>
+      <a href="courses.html">Get the App</a>
+      <a href="work-with-me.html">Work With Me</a>
+    </footer>
+  </div>
+
+  <script src="js/nav.js"></script>
+</body>
+</html>

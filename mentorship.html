@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mentoring — Lux Potentia</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAV OVERLAY -->
+  <div class="nav-overlay" id="navOverlay">
+    <button class="close-btn" onclick="toggleMenu()">Close</button>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="work-with-me.html">Work With Me</a>
+    <a href="courses.html">Get the App</a>
+  </div>
+
+  <!-- NAV -->
+  <nav style="background: var(--red);">
+    <a class="nav-logo" href="index.html" style="color: var(--cream);">Lux Potentia</a>
+    <div class="nav-right">
+      <button class="nav-menu-btn" onclick="toggleMenu()" style="color: var(--cream);">Menu</button>
+      <a class="nav-cta" href="work-with-me.html" style="color: var(--cream); border-color: var(--cream);">Work With Me</a>
+    </div>
+  </nav>
+
+  <div class="page-content">
+
+    <!-- RED HERO BANNER -->
+    <div class="mentorship-hero">
+      <h1 class="section-title" style="color: var(--cream);">MENTORING</h1>
+      <p class="mentorship-tagline">Build Your Game. Your Body. Your Brand.</p>
+    </div>
+
+    <!-- BODY -->
+    <div class="mentorship-body">
+
+      <div class="mentorship-desc">
+        <p>The most valuable lessons are not learned in school, but on the job. For me, that means building a career media presence with millions of views, hundreds of thousands of followers, and a successful tournament history. I bring all of that to the table.</p>
+        <p>It doesn't matter what your business is, every business can benefit, and the formula is the same: know how to create value, build trust, and build a strong relationship with your audience. But starting out in a platform like TikTok or Instagram can be overwhelming. Are you just not getting the traction you deserve? That's where I come in as an experienced mentor to guide you through the process. We'll look at others success stories and come up with a step-by-step long-term and short-term game plan that will get you to where you want to be. Don't be afraid to start dreaming. Together, we'll get your business to new levels.</p>
+        <p>For those who are not far ahead to start as described here, we can also offer our time in assessing your other qualities, and creating a game plan for your physical attributes. Or this next method may be complement your goals. Think of the course I've started teaching: the advanced areas of your life that you need to model to reach your goals.</p>
+        <span class="highlight">Book a call with me and I will work with you to design a roadmap for leveling up your game, your workout routine, or your brand.</span>
+
+        <form class="contact-form" action="#" method="POST" style="margin-top:40px;">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name <span>(required)</span></label>
+              <input type="text" name="first_name" required />
+            </div>
+            <div class="form-group">
+              <label>Last Name <span>(required)</span></label>
+              <input type="text" name="last_name" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email <span>(required)</span></label>
+            <input type="email" name="email" required />
+          </div>
+          <div class="form-check">
+            <input type="checkbox" name="newsletter" id="newsletter-mentorship" />
+            <label for="newsletter-mentorship">Sign up for news and updates</label>
+          </div>
+          <div class="form-group">
+            <label>Subject <span>(required)</span></label>
+            <input type="text" name="subject" required />
+          </div>
+          <div class="form-group">
+            <label>Social Media Handles</label>
+            <textarea name="social" rows="3" placeholder="Include links to your social media handles"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Message <span>(required)</span></label>
+            <textarea name="message" required></textarea>
+          </div>
+          <div>
+            <button type="submit" class="btn-outline btn-sm">Send</button>
+          </div>
+        </form>
+      </div>
+
+      <div style="display:flex; justify-content:center; align-items:flex-start;">
+        <!-- Replace with your actual image -->
+        <img class="mentorship-image" src="images/mentorship.jpg" alt="Lux Potentia Mentorship" />
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <a href="about.html">About</a>
+      <a href="courses.html">Get the App</a>
+      <a href="work-with-me.html">Work With Me</a>
+    </footer>
+  </div>
+
+  <script src="js/nav.js"></script>
+</body>
+</html>

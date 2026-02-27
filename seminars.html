@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Seminar — Lux Potentia</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAV OVERLAY -->
+  <div class="nav-overlay" id="navOverlay">
+    <button class="close-btn" onclick="toggleMenu()">Close</button>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="work-with-me.html">Work With Me</a>
+    <a href="courses.html">Get the App</a>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="index.html">Lux Potentia</a>
+    <div class="nav-right">
+      <button class="nav-menu-btn" onclick="toggleMenu()">Menu</button>
+      <a class="nav-cta" href="work-with-me.html">Work With Me</a>
+    </div>
+  </nav>
+
+  <div class="page-content">
+    <section class="form-page">
+
+      <div class="form-col">
+        <h1 class="section-title fade-up fade-up-delay-1">BOOK A SEMINAR</h1>
+
+        <p class="form-desc fade-up fade-up-delay-2">
+          I offer seminars in both jiu jitsu and self defense, with programs specifically tailored to the workplace. Whether you run a Fortune 500 company, a small business, or a gym, this is a fantastic way to empower your employees or clients, while teaching them some practical skills for defending themselves. If you are interested in booking me for a seminar, please fill out the form and I will be in touch.
+        </p>
+
+        <form class="contact-form" action="#" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name <span>(required)</span></label>
+              <input type="text" name="first_name" required />
+            </div>
+            <div class="form-group">
+              <label>Last Name <span>(required)</span></label>
+              <input type="text" name="last_name" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Company or Business Name</label>
+            <input type="text" name="company" />
+          </div>
+          <div class="form-group">
+            <label>Email <span>(required)</span></label>
+            <input type="email" name="email" required />
+          </div>
+          <div class="form-check">
+            <input type="checkbox" name="newsletter" id="newsletter-seminar" />
+            <label for="newsletter-seminar">Sign up for news and updates</label>
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" name="phone" />
+          </div>
+          <div class="form-group">
+            <label>Topics of Interest</label>
+            <input type="text" name="topics" placeholder="e.g. self defense, jiu jitsu fundamentals, workplace safety" />
+          </div>
+          <div class="form-group">
+            <label>How long would you like the seminar to be?</label>
+            <div class="form-check" style="margin-top:8px;">
+              <input type="checkbox" name="duration" value="1hr" id="dur1" />
+              <label for="dur1">1 hour</label>
+            </div>
+            <div class="form-check" style="margin-top:6px;">
+              <input type="checkbox" name="duration" value="2hr" id="dur2" />
+              <label for="dur2">2 hours</label>
+            </div>
+            <div class="form-check" style="margin-top:6px;">
+              <input type="checkbox" name="duration" value="3hr" id="dur3" />
+              <label for="dur3">3 hours</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Preferred Date</label>
+            <input type="date" name="preferred_date" />
+          </div>
+          <div class="form-group">
+            <label>Message <span>(required)</span></label>
+            <textarea name="message" required placeholder="Tell me about your group, goals, and anything else I should know"></textarea>
+          </div>
+          <div>
+            <button type="submit" class="btn-outline btn-sm">Submit</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="form-image-col">
+        <!-- Replace with your actual images -->
+        <img src="images/seminar-1.jpg" class="rounded" alt="Seminar photo" />
+        <img src="images/seminar-2.jpg" alt="Teaching at seminar" style="margin-top:20px;" />
+      </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <a href="about.html">About</a>
+      <a href="courses.html">Get the App</a>
+      <a href="work-with-me.html">Work With Me</a>
+    </footer>
+  </div>
+
+  <script src="js/nav.js"></script>
+</body>
+</html>
