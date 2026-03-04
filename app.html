@@ -659,9 +659,30 @@
   <section id="trailerSection" style="background:var(--dark); padding:80px 80px; text-align:center;">
     <span style="font-size:11px; font-weight:600; letter-spacing:0.25em; color:var(--orange); text-transform:uppercase; display:block; margin-bottom:16px;">See It In Action</span>
     <h2 style="font-family:'Playfair Display',serif; font-size:clamp(28px,3vw,46px); font-weight:900; color:var(--cream); margin-bottom:40px;">Watch the trailer</h2>
-    <div style="max-width:800px; margin:0 auto; position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:4px;">
-      <!-- REPLACE src with your Vimeo embed URL: https://player.vimeo.com/video/YOUR_VIDEO_ID -->
-      <iframe id="trailerEmbed" src="https://player.vimeo.com/video/VIMEO_ID_HERE?title=0&byline=0&portrait=0&color=c8432a" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    <div style="display:flex; gap:60px; align-items:flex-start; justify-content:center; flex-wrap:wrap; max-width:1000px; margin:0 auto;">
+      
+      <!-- VERTICAL TRAILER - phone frame style -->
+      <div style="text-align:center;">
+        <p style="font-family:'Josefin Sans',sans-serif; font-size:11px; letter-spacing:0.15em; color:rgba(245,237,224,0.5); text-transform:uppercase; margin-bottom:16px;">App Trailer</p>
+        <div style="position:relative; width:280px; margin:0 auto;">
+          <!-- Phone frame -->
+          <div style="background:#111; border-radius:36px; padding:12px; box-shadow:0 0 0 2px #333, 0 30px 80px rgba(0,0,0,0.6);">
+            <div style="position:relative; padding-bottom:177.78%; height:0; overflow:hidden; border-radius:26px;">
+              <iframe src="https://player.vimeo.com/video/1170366559?title=0&byline=0&portrait=0&color=c8432a" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WELCOME VIDEO - widescreen -->
+      <div style="text-align:center; flex:1; min-width:300px; max-width:540px;">
+        <p style="font-family:'Josefin Sans',sans-serif; font-size:11px; letter-spacing:0.15em; color:rgba(245,237,224,0.5); text-transform:uppercase; margin-bottom:16px;">Course Welcome</p>
+        <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:4px;">
+          <iframe src="https://player.vimeo.com/video/1170363941?title=0&byline=0&portrait=0&color=c8432a" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p style="font-family:'Cormorant Garamond',serif; font-size:16px; font-style:italic; color:rgba(245,237,224,0.45); margin-top:16px;">Get a feel for the course before you buy.</p>
+      </div>
+
     </div>
   </section>
 
@@ -679,25 +700,6 @@
   </section>
 
 
-  <!-- REAL STORIES SECTION -->
-  <section style="background: #1a0f08; padding: 100px 80px;">
-    <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-      <span style="font-size:11px; font-weight:600; letter-spacing:0.25em; color:#e8973a; text-transform:uppercase; display:block; margin-bottom:20px;">This is not theoretical</span>
-      <h2 style="font-family:'Playfair Display',serif; font-size:clamp(28px,4vw,50px); font-weight:900; color:#f5ede0; line-height:1.15; margin-bottom:50px;">Real women. Real attacks.<br>Same techniques you'll learn here.</h2>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; text-align:left;">
-        <div style="border-left: 2px solid #c8432a; padding-left: 28px;">
-          <p style="font-family:'Josefin Sans',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.15em; color:#c8432a; text-transform:uppercase; margin-bottom:12px;">Susan Wright, ER Nurse</p>
-          <p style="font-family:'Cormorant Garamond',serif; font-size:18px; line-height:1.8; color:rgba(245,237,224,0.8);">She came home to find a professional assassin hired by her husband waiting with a hammer. She bit him. She tried to run. He caught her. Then she applied a rear naked choke she had learned in self-defense training, and held it until the threat stopped. She survived. We will learn that exact choke.</p>
-        </div>
-        <div style="border-left: 2px solid #c8432a; padding-left: 28px;">
-          <p style="font-family:'Josefin Sans',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.15em; color:#c8432a; text-transform:uppercase; margin-bottom:12px;">Terra Newell, Dirty John Case</p>
-          <p style="font-family:'Cormorant Garamond',serif; font-size:18px; line-height:1.8; color:rgba(245,237,224,0.8);">Knocked to the ground by a violent attacker holding a knife, she used an up-kick to disarm him, creating the opening she needed to survive. She didn't have years of training. She had the right tool at the right moment. That tool is in this app.</p>
-        </div>
-      </div>
-      <p style="font-family:'Cormorant Garamond',serif; font-size:19px; font-style:italic; color:rgba(245,237,224,0.5); margin-top:50px; line-height:1.7;">These women weren't superheroes. They were women with some training who used it when it mattered.</p>
-    </div>
-  </section>
-
   <!-- MODULES -->
   <section class="modules-section">
     <div style="text-align:center; margin-bottom: 60px;">
@@ -707,8 +709,8 @@
     <div class="modules-grid">
       <div class="module-card reveal">
         <div class="module-num">01</div>
-        <div class="module-title">The Three Layers of Self-Defense</div>
-        <p class="module-desc">Fighting is the last resort. Learn the three layers: situational awareness, verbal boundaries, and physical defense, and how to move through each one confidently.</p>
+        <div class="module-title">Awareness & The Fight You Avoid</div>
+        <p class="module-desc">The best fight is the one that never happens. Learn to read situations before they escalate, trust your instincts, and become a harder target before anyone ever gets close.</p>
       </div>
       <div class="module-card reveal">
         <div class="module-num">02</div>
@@ -718,17 +720,17 @@
       <div class="module-card reveal">
         <div class="module-num">03</div>
         <div class="module-title">The Choke That Ends It</div>
-        <p class="module-desc">You can injure someone and they can keep coming. But when the brain goes offline, the fight is over. I teach the rear naked choke and guillotine, the same techniques used by real women to survive real attacks. Six to ten seconds. It doesn't matter how strong they are.</p>
+        <p class="module-desc">You can hurt someone and they can keep coming. But when the brain goes offline, the fight is over. Six to ten seconds. It doesn't matter how big or strong they are. This is the most reliable tool in the app, and real women have used it to survive real attacks.</p>
       </div>
       <div class="module-card reveal">
         <div class="module-num">04</div>
         <div class="module-title">Ground Defense & Getting Up</div>
-        <p class="module-desc">If you end up on the ground, you are not helpless. Learn the up-kick used by Terra Newell to survive a knife attack, and the technical stand-up that lets you get back on your feet safely while facing a threat.</p>
+        <p class="module-desc">If you end up on the ground, you are not out of options. Learn the tools that create space, stop an attack, and get you back on your feet safely, all while keeping eyes on the threat.</p>
       </div>
       <div class="module-card reveal">
         <div class="module-num">05</div>
         <div class="module-title">How Predators Choose Targets</div>
-        <p class="module-desc">Researchers asked incarcerated individuals to rate vulnerability from short walking videos. They ignored clothing, age, and appearance. They looked for body language, posture, and awareness. This module explains what the research shows, and how training changes what you project.</p>
+        <p class="module-desc">Research shows predators select based on body language and confidence, not appearance. This module explains what the data shows, and why training changes not just what you can do, but how you move through the world.</p>
       </div>
     </div>
   </section>
@@ -845,10 +847,10 @@
 
   <!-- FINAL CTA -->
   <section class="cta-section">
-    <h2 class="section-heading" style="font-family:'Playfair Display',serif; font-size: clamp(32px,4vw,58px); font-weight:900;">Learn to fight. So no one ever wants to fight you.</h2>
+    <h2 class="section-heading" style="font-family:'Playfair Display',serif; font-size: clamp(32px,4vw,58px); font-weight:900;">You already know you should do this.</h2>
     <p class="section-body">
-      One skill remembered is better than ten forgotten. This app gives you the essentials, the seven tools that apply across the broadest range of situations. For $39, less than a single class at a gym, you get a complete system built by a black belt who has used these skills under real pressure.
-      <br><br>And here's what no one tells you: the training changes how you carry yourself. Predators read body language. Confidence isn't just a feeling, it's a deterrent.
+      The only question is whether you'll keep putting it off.
+      For $39, less than a single class at a gym, you get a complete system built by a black belt who has actually used these skills under pressure.
     </p>
     <a class="btn-buy-light gumroad-button" href="https://luxjits.gumroad.com/l/essentials?code=WELCOME20" data-gumroad-overlay-checkout="true">Get Instant Access, $39</a>
     <p class="cta-price">One-time payment · No subscription · Lifetime access</p>
