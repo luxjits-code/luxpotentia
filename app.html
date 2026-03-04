@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Self-Defense Essentials — Lux Potentia</title>
+  <title>Self-Defense Essentials, Lux Potentia</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Josefin+Sans:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
   <!-- Gumroad overlay script -->
@@ -382,7 +382,7 @@
 
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 40px;
       max-width: 900px;
       margin: 60px auto 0;
@@ -591,10 +591,21 @@
 </head>
 <body>
 
+  <!-- DISCOUNT BANNER -->
+  <div id="discountBanner" style="display:none; position:fixed; top:0; left:0; right:0; z-index:1000; background:var(--dark); color:var(--cream); padding:12px 24px; display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap; font-family:'Josefin Sans',sans-serif; font-size:12px; letter-spacing:0.1em; text-transform:uppercase;">
+    <span style="opacity:0.7;">Welcome! First-time visitor offer:</span>
+    <span>Use code <strong style="color:var(--orange); letter-spacing:0.15em;">WELCOME20</strong> for 20% off</span>
+    <span style="opacity:0.5;">·</span>
+    <span>Expires in <strong id="timerDisplay" style="color:var(--orange); font-size:14px; font-variant-numeric:tabular-nums;">30:00</strong></span>
+    <a href="https://luxjits.gumroad.com/l/essentials?code=WELCOME20" data-gumroad-overlay-checkout="true" style="background:var(--red); color:var(--cream); padding:8px 20px; border-radius:20px; text-decoration:none; font-weight:600; letter-spacing:0.12em; white-space:nowrap; transition:background 0.2s;">Claim 20% Off →</a>
+    <button onclick="document.getElementById('discountBanner').style.display='none'" style="position:absolute; right:16px; background:none; border:none; color:rgba(245,237,224,0.4); font-size:18px; cursor:pointer; line-height:1;">×</button>
+  </div>
+
+
   <!-- NAV -->
   <nav class="sales-nav">
     <a href="index.html">← Lux Potentia</a>
-    <a class="buy-nav gumroad-button" href="https://luxjits.gumroad.com/l/essentials" data-gumroad-overlay-checkout="true">Get the App — $39</a>
+    <a class="buy-nav gumroad-button" href="https://luxjits.gumroad.com/l/essentials?code=WELCOME20" data-gumroad-overlay-checkout="true">Get the App, $39</a>
   </nav>
 
   <!-- HERO -->
@@ -602,17 +613,19 @@
     <div class="hero-left">
       <span class="eyebrow">Self-Defense Essentials App</span>
       <h1 class="hero-title">Learn to fight.<br>So you don't<br>have to.</h1>
-      <p class="hero-subtitle">Real skills. Real pressure. Real confidence.</p>
+      <p class="hero-subtitle">Real skills. Real confidence.</p>
       <p class="hero-problem">
         Most self-defense advice online teaches <strong>too many techniques that fall apart under pressure.</strong>
         <br><br>
-        I help women who want to feel physically confident in the real world — by teaching a <strong>small number of high-percentage skills that actually work when it matters.</strong>
+        I help women who want to feel physically confident in the real world, by teaching a <strong>small number of high-percentage skills that actually work when it matters.</strong>
+        <br><br>
+        And here's something most people don't tell you: <strong>when you move through the world with real confidence, predators are far less likely to choose you in the first place.</strong>
       </p>
       <div class="price-block">
         <span class="price">$39</span>
         <span class="price-note">One-time payment<br>Lifetime access</span>
       </div>
-      <a class="btn-buy gumroad-button" href="https://luxjits.gumroad.com/l/essentials" data-gumroad-overlay-checkout="true">Get Instant Access</a>
+      <a class="btn-buy gumroad-button" href="https://luxjits.gumroad.com/l/essentials?code=WELCOME20" data-gumroad-overlay-checkout="true">Get Instant Access</a>
       <p class="guarantee">No subscription · No gym required · Start today</p>
     </div>
     <div class="hero-right">
@@ -641,17 +654,48 @@
     </div>
   </div>
 
+
+  <!-- TRAILER VIDEO -->
+  <section id="trailerSection" style="background:var(--dark); padding:80px 80px; text-align:center;">
+    <span style="font-size:11px; font-weight:600; letter-spacing:0.25em; color:var(--orange); text-transform:uppercase; display:block; margin-bottom:16px;">See It In Action</span>
+    <h2 style="font-family:'Playfair Display',serif; font-size:clamp(28px,3vw,46px); font-weight:900; color:var(--cream); margin-bottom:40px;">Watch the trailer</h2>
+    <div style="max-width:800px; margin:0 auto; position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:4px;">
+      <!-- REPLACE src with your Vimeo embed URL: https://player.vimeo.com/video/YOUR_VIDEO_ID -->
+      <iframe id="trailerEmbed" src="https://player.vimeo.com/video/VIMEO_ID_HERE?title=0&byline=0&portrait=0&color=c8432a" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </section>
+
   <!-- PROBLEM -->
   <section class="problem-section reveal">
     <span class="section-label">Why most self-defense fails</span>
-    <h2 class="section-heading">You've been taught the wrong things.</h2>
+    <h2 class="section-heading" style="font-size:clamp(34px,5vw,62px);">You've been taught the wrong things.</h2>
     <p class="section-body">
       Most self-defense classes teach you 30 techniques you'll forget the moment your adrenaline spikes. 
       Real danger doesn't give you time to remember a curriculum. It gives you one second to react.<br><br>
-      After years of competing in Brazilian jiu jitsu — including beating opponents with 50+ pound weight advantages — 
+      After years of competing in Brazilian jiu jitsu, including beating opponents with 50+ pound weight advantages, 
       I know exactly which skills hold up under pressure and which ones don't. 
       This app teaches only what works.
     </p>
+  </section>
+
+
+  <!-- REAL STORIES SECTION -->
+  <section style="background: #1a0f08; padding: 100px 80px;">
+    <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+      <span style="font-size:11px; font-weight:600; letter-spacing:0.25em; color:#e8973a; text-transform:uppercase; display:block; margin-bottom:20px;">This is not theoretical</span>
+      <h2 style="font-family:'Playfair Display',serif; font-size:clamp(28px,4vw,50px); font-weight:900; color:#f5ede0; line-height:1.15; margin-bottom:50px;">Real women. Real attacks.<br>Same techniques you'll learn here.</h2>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; text-align:left;">
+        <div style="border-left: 2px solid #c8432a; padding-left: 28px;">
+          <p style="font-family:'Josefin Sans',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.15em; color:#c8432a; text-transform:uppercase; margin-bottom:12px;">Susan Wright, ER Nurse</p>
+          <p style="font-family:'Cormorant Garamond',serif; font-size:18px; line-height:1.8; color:rgba(245,237,224,0.8);">She came home to find a professional assassin hired by her husband waiting with a hammer. She bit him. She tried to run. He caught her. Then she applied a rear naked choke she had learned in self-defense training, and held it until the threat stopped. She survived. We will learn that exact choke.</p>
+        </div>
+        <div style="border-left: 2px solid #c8432a; padding-left: 28px;">
+          <p style="font-family:'Josefin Sans',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.15em; color:#c8432a; text-transform:uppercase; margin-bottom:12px;">Terra Newell, Dirty John Case</p>
+          <p style="font-family:'Cormorant Garamond',serif; font-size:18px; line-height:1.8; color:rgba(245,237,224,0.8);">Knocked to the ground by a violent attacker holding a knife, she used an up-kick to disarm him, creating the opening she needed to survive. She didn't have years of training. She had the right tool at the right moment. That tool is in this app.</p>
+        </div>
+      </div>
+      <p style="font-family:'Cormorant Garamond',serif; font-size:19px; font-style:italic; color:rgba(245,237,224,0.5); margin-top:50px; line-height:1.7;">These women weren't superheroes. They were women with some training who used it when it mattered.</p>
+    </div>
   </section>
 
   <!-- MODULES -->
@@ -663,28 +707,28 @@
     <div class="modules-grid">
       <div class="module-card reveal">
         <div class="module-num">01</div>
-        <div class="module-title">Awareness & Avoidance</div>
-        <p class="module-desc">The best fight is the one you don't have. Learn to read situations before they escalate and become a harder target.</p>
+        <div class="module-title">The Three Layers of Self-Defense</div>
+        <p class="module-desc">Fighting is the last resort. Learn the three layers: situational awareness, verbal boundaries, and physical defense, and how to move through each one confidently.</p>
       </div>
       <div class="module-card reveal">
         <div class="module-num">02</div>
-        <div class="module-title">Breaking Grabs & Holds</div>
-        <p class="module-desc">The most common attacks against women involve grabs. Master the mechanics to break free from wrist grabs, bear hugs, and chokes.</p>
+        <div class="module-title">Striking & Creating Space</div>
+        <p class="module-desc">Push kicks, elbows, and the clinch, the high-percentage strikes that create distance and buy you the seconds you need to escape.</p>
       </div>
       <div class="module-card reveal">
         <div class="module-num">03</div>
-        <div class="module-title">Striking That Works</div>
-        <p class="module-desc">Not every strike is equal. I teach the high-percentage strikes — the ones that create distance and end confrontations fast.</p>
+        <div class="module-title">The Choke That Ends It</div>
+        <p class="module-desc">You can injure someone and they can keep coming. But when the brain goes offline, the fight is over. I teach the rear naked choke and guillotine, the same techniques used by real women to survive real attacks. Six to ten seconds. It doesn't matter how strong they are.</p>
       </div>
       <div class="module-card reveal">
         <div class="module-num">04</div>
-        <div class="module-title">Ground Defense</div>
-        <p class="module-desc">Most attacks end up on the ground. Jiu jitsu gives you an enormous advantage here — I'll show you how to survive and escape.</p>
+        <div class="module-title">Ground Defense & Getting Up</div>
+        <p class="module-desc">If you end up on the ground, you are not helpless. Learn the up-kick used by Terra Newell to survive a knife attack, and the technical stand-up that lets you get back on your feet safely while facing a threat.</p>
       </div>
       <div class="module-card reveal">
         <div class="module-num">05</div>
-        <div class="module-title">The Mindset Edge</div>
-        <p class="module-desc">Physical skill is only half the equation. Learn to override the freeze response and act decisively when it matters most.</p>
+        <div class="module-title">How Predators Choose Targets</div>
+        <p class="module-desc">Researchers asked incarcerated individuals to rate vulnerability from short walking videos. They ignored clothing, age, and appearance. They looked for body language, posture, and awareness. This module explains what the research shows, and how training changes what you project.</p>
       </div>
     </div>
   </section>
@@ -694,13 +738,13 @@
     <div class="for-section" style="padding: 0; margin: 0 auto;">
       <div>
         <span class="section-label">Who this is for</span>
-        <h2 class="section-heading">For women who are done feeling vulnerable.</h2>
+        <h2 class="section-heading">For women who are done feeling powerless.</h2>
         <ul class="for-list">
-          <li>You walk to your car at night and think about it</li>
-          <li>You've never trained but know you should</li>
-          <li>You want real skills, not a false sense of security</li>
-          <li>You don't have time for a gym — this works at home</li>
-          <li>You want to become someone who is harder to hurt</li>
+          <li>You walk to your car at night and run through scenarios in your head</li>
+          <li>You want real skills, not a list of techniques you will forget the moment adrenaline spikes</li>
+          <li>You've been told to "just scream" and know that isn't enough</li>
+          <li>You don't have time for a gym, this works anywhere, on your schedule</li>
+          <li>You want to move through the world like someone who can handle herself</li>
         </ul>
       </div>
       <div class="for-image">
@@ -727,7 +771,7 @@
       <div class="feature">
         <span class="feature-icon">🧠</span>
         <div class="feature-title">Interactive Quizzes</div>
-        <p class="feature-desc">Reinforce what you've learned so it actually sticks — not just something you watched once.</p>
+        <p class="feature-desc">Reinforce what you've learned so it actually sticks, not just something you watched once.</p>
       </div>
       <div class="feature">
         <span class="feature-icon">🏅</span>
@@ -737,7 +781,7 @@
       <div class="feature">
         <span class="feature-icon">📱</span>
         <div class="feature-title">Works On Any Device</div>
-        <p class="feature-desc">Phone, tablet, laptop — train whenever, wherever. No app store download needed.</p>
+        <p class="feature-desc">Phone, tablet, laptop, train whenever, wherever. No app store download needed.</p>
       </div>
       <div class="feature">
         <span class="feature-icon">♾️</span>
@@ -753,57 +797,60 @@
       <span class="section-label">What students are saying</span>
       <h2 class="section-heading">Real women. Real results.</h2>
     </div>
-    <div class="reviews-grid">
+    <div class="reviews-grid" style="grid-template-columns: repeat(2, 1fr);">
       <div class="review-card reveal">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">I've taken other self-defense classes and always felt like I was just going through the motions. This is different. Lux explains the WHY behind every move and now I actually feel like I could use this.</p>
-        <div class="review-author">Sarah M.</div>
-        <div class="review-handle">Verified Purchase</div>
+        <div class="review-author">Verified Purchase</div>
       </div>
       <div class="review-card reveal">
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">I'm not athletic at all. I was nervous this would be too advanced for me but Lux breaks everything down so clearly. Finished all 5 modules in a weekend. The ground defense module alone was worth $39.</p>
-        <div class="review-author">Daniela R.</div>
-        <div class="review-handle">Verified Purchase</div>
-      </div>
-      <div class="review-card reveal">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">I've followed Lux on Instagram for a year and finally bought the app. The production quality is great, the content is genuinely useful, and I love the belt system. It makes you want to keep going.</p>
-        <div class="review-author">Priya K.</div>
-        <div class="review-handle">Verified Purchase</div>
-      </div>
-      <div class="review-card reveal">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">Bought this after watching one of Lux's reels. What I appreciate most is that she doesn't sugarcoat anything — she tells you what actually works and what doesn't. Refreshingly honest.</p>
-        <div class="review-author">Jessica T.</div>
-        <div class="review-handle">Verified Purchase</div>
-      </div>
-      <div class="review-card reveal">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">I'm a nurse who works night shifts. Walking to my car used to make my heart race. After going through this app I feel so much more prepared. Highly recommend to any woman who spends time alone.</p>
-        <div class="review-author">Amanda L.</div>
-        <div class="review-handle">Verified Purchase</div>
+        <p class="review-text">I practiced some of the moves on my husband and they WORKED!! This was so easy to follow and so helpful.</p>
+        <div class="review-author">Verified Purchase</div>
       </div>
       <div class="review-card reveal">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">Bought this for my college-age daughter and we actually did it together over FaceTime. The awareness module changed how both of us think about our daily routines. Worth every penny.</p>
-        <div class="review-author">Karen B.</div>
-        <div class="review-handle">Verified Purchase</div>
+        <div class="review-author">Verified Purchase</div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">This was one of my best purchases in a long time! Lux articulated everything so clearly, it was easy and fun to take the tests and get a real understanding of what would help me in a real life situation. Highly recommended if you are looking to get an understanding of martial arts that could save your life.</p>
+        <div class="review-author">Verified Purchase</div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">I'm not athletic at all. I was nervous this would be too advanced for me but Lux breaks everything down so clearly. Finished all 5 modules in a weekend. The ground defense module alone was worth the price.</p>
+        <div class="review-author">Verified Purchase</div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">I've followed Lux on Instagram for a year and finally bought the app. The production quality is great, the content is genuinely useful, and I love the belt system. It makes you want to keep going.</p>
+        <div class="review-author">Verified Purchase</div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Bought this after watching one of Lux's reels. What I appreciate most is that she doesn't sugarcoat anything, she tells you what actually works and what doesn't. Refreshingly honest.</p>
+        <div class="review-author">Verified Purchase</div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">I'm a nurse who works night shifts. Walking to my car used to make my heart race. After going through this app I feel so much more prepared. Highly recommend to any woman who commutes alone.</p>
+        <div class="review-author">Verified Purchase</div>
       </div>
     </div>
-
-    <!-- REPLACE REVIEWS NOTE -->
     <!-- To add your real reviews: replace the review-text, review-author, and review-handle content above -->
   </section>
 
+
   <!-- FINAL CTA -->
   <section class="cta-section">
-    <h2 class="section-heading" style="font-family:'Playfair Display',serif; font-size: clamp(32px,4vw,58px); font-weight:900;">You already know you should do this.</h2>
+    <h2 class="section-heading" style="font-family:'Playfair Display',serif; font-size: clamp(32px,4vw,58px); font-weight:900;">Learn to fight. So no one ever wants to fight you.</h2>
     <p class="section-body">
-      The only question is whether you'll keep putting it off. 
-      For $39 — less than a single class at a gym — you get a complete system built by a black belt who has actually used these skills under pressure.
+      One skill remembered is better than ten forgotten. This app gives you the essentials, the seven tools that apply across the broadest range of situations. For $39, less than a single class at a gym, you get a complete system built by a black belt who has used these skills under real pressure.
+      <br><br>And here's what no one tells you: the training changes how you carry yourself. Predators read body language. Confidence isn't just a feeling, it's a deterrent.
     </p>
-    <a class="btn-buy-light gumroad-button" href="https://luxjits.gumroad.com/l/essentials" data-gumroad-overlay-checkout="true">Get Instant Access — $39</a>
+    <a class="btn-buy-light gumroad-button" href="https://luxjits.gumroad.com/l/essentials?code=WELCOME20" data-gumroad-overlay-checkout="true">Get Instant Access, $39</a>
     <p class="cta-price">One-time payment · No subscription · Lifetime access</p>
   </section>
 
@@ -826,6 +873,51 @@
       });
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
+  </script>
+
+
+  <script>
+    // Show banner after 3 seconds
+    setTimeout(() => {
+      const banner = document.getElementById('discountBanner');
+      if (banner) banner.style.display = 'flex';
+    }, 3000);
+
+    // 30-minute countdown timer (session-based)
+    const TIMER_DURATION = 30 * 60; // 30 minutes in seconds
+    const STORAGE_KEY = 'lux_timer_end';
+
+    function getTimerEnd() {
+      const stored = sessionStorage.getItem(STORAGE_KEY);
+      if (stored) return parseInt(stored);
+      const end = Date.now() + TIMER_DURATION * 1000;
+      sessionStorage.setItem(STORAGE_KEY, end);
+      return end;
+    }
+
+    const timerEnd = getTimerEnd();
+
+    function updateTimer() {
+      const remaining = Math.max(0, Math.floor((timerEnd - Date.now()) / 1000));
+      const mins = Math.floor(remaining / 60).toString().padStart(2, '0');
+      const secs = (remaining % 60).toString().padStart(2, '0');
+      const display = document.getElementById('timerDisplay');
+      if (display) display.textContent = mins + ':' + secs;
+
+      if (remaining <= 0) {
+        // Timer expired, hide banner silently
+        const banner = document.getElementById('discountBanner');
+        if (banner) {
+          banner.style.transition = 'opacity 1s ease';
+          banner.style.opacity = '0';
+          setTimeout(() => banner.style.display = 'none', 1000);
+        }
+        clearInterval(timerInterval);
+      }
+    }
+
+    const timerInterval = setInterval(updateTimer, 1000);
+    updateTimer();
   </script>
 
 </body>
