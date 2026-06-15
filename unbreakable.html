@@ -884,7 +884,37 @@
     <p class="video-label">Watch the introduction</p>
     <div class="video-container">
       <!-- Vimeo embed - restricted to luxpotentia.com -->
-      <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1201460587?h=cd6d00a7b0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="INTRODUCTION"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+      <div style="padding:56.25% 0 0 0;position:relative;">
+        <iframe id="yt-intro" src="https://www.youtube.com/embed/ToBs1HwDf_0?rel=0&modestbranding=1&showinfo=0&enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+        <div id="yt-end-cover" style="position:absolute;inset:0;background:#0a0a0a;pointer-events:none;opacity:0;transition:opacity 0.3s;"></div>
+      </div>
+      <script>
+        (function() {
+          var cover = document.getElementById('yt-end-cover');
+          var duration = 238; // 3:58 in seconds
+          var timer;
+          window.onYouTubeIframeAPIReady = function() {
+            var player = new YT.Player('yt-intro', {
+              events: {
+                onStateChange: function(e) {
+                  if (e.data === YT.PlayerState.PLAYING) {
+                    cover.style.opacity = '0';
+                    cover.style.pointerEvents = 'none';
+                    clearTimeout(timer);
+                  }
+                  if (e.data === YT.PlayerState.ENDED) {
+                    cover.style.opacity = '1';
+                    cover.style.pointerEvents = 'all';
+                  }
+                }
+              }
+            });
+          };
+          var tag = document.createElement('script');
+          tag.src = 'https://www.youtube.com/iframe_api';
+          document.head.appendChild(tag);
+        })();
+      </script>
     </div>
   </div>
 </div>
