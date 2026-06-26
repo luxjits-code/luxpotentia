@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unbreakable — Course</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --near-black: #111111;
+    --charcoal: #1a1a1a;
+    --charcoal-light: #222222;
+    --border: rgba(255,255,255,0.07);
+    --red: #c8432a;
+    --red-bright: #e04830;
+    --cream: #f2ede4;
+    --cream-dim: #9a9590;
+    --white: #ffffff;
+    --sidebar-width: 300px;
+    --header-height: 60px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* ---- HEADER ---- */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--header-height);
+    background: var(--near-black);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 200;
+  }
+  .header-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--cream);
+    letter-spacing: 0.02em;
+  }
+  .header-brand span {
+    font-style: italic;
+    color: var(--red);
+  }
+  .header-progress {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .progress-bar-wrap {
+    width: 120px;
+    height: 2px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: var(--red);
+    border-radius: 2px;
+    transition: width 0.4s ease;
+  }
+  .progress-label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+    white-space: nowrap;
+  }
+  .header-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--cream);
+    cursor: pointer;
+    padding: 8px;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .header-menu-btn span {
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: var(--cream);
+    transition: all 0.2s;
+  }
+
+  /* ---- LAYOUT ---- */
+  .layout {
+    display: flex;
+    padding-top: var(--header-height);
+    min-height: 100vh;
+  }
+
+  /* ---- SIDEBAR ---- */
+  .sidebar {
+    width: var(--sidebar-width);
+    background: var(--near-black);
+    border-right: 1px solid var(--border);
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    bottom: 0;
+    overflow-y: auto;
+    z-index: 100;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.1) transparent;
+  }
+  .sidebar::-webkit-scrollbar { width: 4px; }
+  .sidebar::-webkit-scrollbar-track { background: transparent; }
+  .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); }
+
+  .sidebar-inner { padding: 8px 0 40px; }
+
+  .sidebar-section-label {
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+    opacity: 0.4;
+    padding: 20px 20px 8px;
+  }
+
+  .module-btn {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    width: 100%;
+    padding: 14px 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.15s;
+    position: relative;
+  }
+  .module-btn:hover { background: rgba(255,255,255,0.03); }
+  .module-btn.active {
+    background: rgba(200,67,42,0.08);
+  }
+  .module-btn.active::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--red);
+  }
+
+  .module-check {
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+  .module-btn.completed .module-check {
+    background: var(--red);
+    border-color: var(--red);
+  }
+  .module-btn.active .module-check {
+    border-color: var(--red);
+  }
+  .check-icon {
+    display: none;
+    color: white;
+    font-size: 10px;
+    line-height: 1;
+  }
+  .module-btn.completed .check-icon { display: block; }
+
+  .module-btn-text { flex: 1; }
+  .module-btn-num {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+    margin-bottom: 3px;
+    opacity: 0.6;
+  }
+  .module-btn.active .module-btn-num { color: var(--red); opacity: 1; }
+  .module-btn-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    color: var(--cream);
+    line-height: 1.35;
+    font-weight: 400;
+  }
+  .module-btn.active .module-btn-title { font-weight: 700; }
+  .module-btn.completed .module-btn-title { color: var(--cream-dim); }
+  .module-btn-techniques {
+    font-size: 10px;
+    color: var(--cream-dim);
+    opacity: 0.45;
+    margin-top: 3px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ---- MAIN CONTENT ---- */
+  .main {
+    margin-left: var(--sidebar-width);
+    flex: 1;
+    min-height: calc(100vh - var(--header-height));
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ---- VIDEO AREA ---- */
+  .video-area {
+    background: #000;
+    width: 100%;
+  }
+  .video-wrap {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+  }
+  .video-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+  .video-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background: #0d0d0d;
+  }
+  .video-placeholder-icon {
+    width: 56px;
+    height: 56px;
+    border: 1px solid rgba(200,67,42,0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .video-placeholder-icon::after {
+    content: '';
+    width: 0; height: 0;
+    border-style: solid;
+    border-width: 9px 0 9px 16px;
+    border-color: transparent transparent transparent var(--red);
+    margin-left: 3px;
+  }
+  .video-placeholder p {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+    opacity: 0.4;
+  }
+
+  /* ---- MODULE CONTENT ---- */
+  .module-content {
+    padding: 40px 48px 80px;
+    max-width: 820px;
+  }
+  .module-eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 10px;
+  }
+  .module-title-large {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 3vw, 38px);
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .module-description {
+    font-size: 14px;
+    line-height: 2.1;
+    color: var(--cream-dim);
+    max-width: 640px;
+    margin-bottom: 32px;
+  }
+
+  /* ---- TECHNIQUES LIST ---- */
+  .techniques-label {
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+    opacity: 0.5;
+    margin-bottom: 12px;
+  }
+  .techniques-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 40px;
+  }
+  .technique-chip {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--cream-dim);
+    background: var(--charcoal);
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 2px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    cursor: default;
+    text-align: left;
+  }
+  .technique-chip.clickable {
+    cursor: pointer;
+    border-color: rgba(200,67,42,0.3);
+    color: var(--cream);
+    transition: background 0.15s, border-color 0.15s, transform 0.1s;
+  }
+  .technique-chip.clickable:hover {
+    background: rgba(200,67,42,0.1);
+    border-color: var(--red);
+    transform: translateY(-1px);
+  }
+  .chip-arrow {
+    color: var(--red);
+    margin-right: 6px;
+    font-style: normal;
+    font-size: 10px;
+  }
+
+  /* ---- NAVIGATION BUTTONS ---- */
+  .module-nav {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .btn-complete {
+    background: var(--red);
+    color: var(--white);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-complete:hover { background: var(--red-bright); transform: translateY(-1px); }
+  .btn-complete.done {
+    background: var(--charcoal);
+    color: var(--cream-dim);
+    cursor: default;
+    transform: none;
+  }
+  .btn-next {
+    background: none;
+    color: var(--cream);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-next:hover { border-color: var(--cream-dim); }
+  .btn-next:disabled { opacity: 0.3; cursor: default; }
+
+  /* ---- DIVIDER ---- */
+  .content-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+    margin: 32px 0;
+  }
+
+  /* ---- MOBILE OVERLAY ---- */
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 99;
+  }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 768px) {
+    :root { --sidebar-width: 280px; }
+    .sidebar {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+    .sidebar.open { transform: translateX(0); }
+    .sidebar-overlay.open { display: block; }
+    .main { margin-left: 0; }
+    .header-menu-btn { display: flex; }
+    .module-content { padding: 24px 20px 60px; }
+    .header-progress { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-brand">UN<span>BREAK</span>ABLE</div>
+  <div class="header-progress">
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progress-bar" style="width:0%"></div>
+    </div>
+    <span class="progress-label" id="progress-label">0 of 10 complete</span>
+  </div>
+  <button class="header-menu-btn" id="menu-btn" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner">
+      <div class="sidebar-section-label">Course Modules</div>
+
+      <button class="module-btn active" data-module="0" onclick="loadModule(0)">
+        <div class="module-check"><span class="check-icon">✓</span></div>
+        <div class="module-btn-text">
+          <div class="module-btn-num">Introduction</div>
+          <div class="module-btn-title">Welcome to Unbreakable</div>
+          <div class="module-btn-techniques">4 min</div>
+        </div>
+      </button>
+
+      <button class="module-btn" data-module="1" onclick="loadModule(1)">
+        <div class="module-check"><span class="check-icon">✓</span></div>
+        <div class="module-btn-text">
+          <div class="module-btn-num">Module I</div>
+          <div class="module-btn-title">You Are Not Helpless</div>
+          <div class="module-btn-techniques">1 technique</div>
+        </div>
+      </button>
+
+      <button class="module-btn" data-module="2" onclick="loadModule(2)">
+        <div class="module-check"><span class="check-icon">✓</span></div>
+        <div class="module-btn-text">
+          <div class="module-btn-num">Module II</div>
+          <div class="module-btn-title">Why Women Freeze</div>
+          <div class="module-btn-techniques">Psychology + mindset</div>
+        </div>
+      </button>
+
+      <button class="module-btn" data-module="3" onclick="loadModule(3)">
+        <div class="module-check"><span class="check-icon">✓</span></div>
+        <div class="module-btn-text">
+          <div class="module-btn-num">Module III</div>
+          <div class="module-btn-title">Becoming Harder to Choose</div>
+          <div class="module-btn-techniques">Situational awareness</div>
+        </div>
+      </button>
+
+      <button class="module-btn" data-module="4" onclick="loadModule(4)">
+        <div class="module-check"><span class="check-icon">✓</span></div>
+        <div class="module-btn-text">
+          <div class="module-btn-num">Module IV</div>
+          <div class="module-btn-title">Verbal Boundaries & Presence</div>
+          <div class="module-btn-techniques">Voice as a weapon</div>
+        </div>
+      </button>
+
+      <button class="module-btn" data-module="5" onclick="loadModule(5)">
+        <div class="module-check"><span class="check-icon">✓</span></div>
+        <div class="module-btn-text">
+          <div class="module-btn-num">Module V</div>
+          <div class="module-btn-title">Standing Defense</div>
+          <div class="module-btn-techniques">5 techniques</div>
+        </div>
+      </button>
+
+      <button class="module-btn" data-module="6" onclick="loadModule(6)">
+        <div class="module-check"><span class="check-icon">✓</span></div>
+        <div class="module-btn-text">
+          <div class="module-btn-num">Module VI</div>
+          <div class="module-btn-title">Fight Enders</div>
+          <div class="module-btn-techniques">1 technique</div>
+        </div>
+      </button>
+
+      <button class="module-btn" data-module="7" onclick="loadModule(7)">
+        <div class="module-check"><span class="check-icon">✓</span></div>
+        <div class="module-btn-text">
+          <div class="module-btn-num">Module VII</div>
+          <div class="module-btn-title">Surprise Attacks</div>
+          <div class="module-btn-techniques">4 techniques</div>
+        </div>
+      </button>
+
+      <button class="module-btn" data-module="8" onclick="loadModule(8)">
+        <div class="module-check"><span class="check-icon">✓</span></div>
+        <div class="module-btn-text">
+          <div class="module-btn-num">Module VIII</div>
+          <div class="module-btn-title">Ground Defense — Part One</div>
+          <div class="module-btn-techniques">8 techniques</div>
+        </div>
+      </button>
+
+      <button class="module-btn" data-module="9" onclick="loadModule(9)">
+        <div class="module-check"><span class="check-icon">✓</span></div>
+        <div class="module-btn-text">
+          <div class="module-btn-num">Module IX</div>
+          <div class="module-btn-title">Ground Defense — Part Two</div>
+          <div class="module-btn-techniques">6 techniques + weapons</div>
+        </div>
+      </button>
+
+      <button class="module-btn" data-module="10" onclick="loadModule(10)">
+        <div class="module-check"><span class="check-icon">✓</span></div>
+        <div class="module-btn-text">
+          <div class="module-btn-num">Conclusion</div>
+          <div class="module-btn-title">The Power of Belief</div>
+          <div class="module-btn-techniques">Closing</div>
+        </div>
+      </button>
+
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main" id="main-content">
+    <div class="video-area">
+      <div class="video-wrap" id="video-wrap">
+        <div class="video-placeholder" id="video-placeholder">
+          <div class="video-placeholder-icon"></div>
+          <p>Video coming soon</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="module-content" id="module-content">
+      <!-- Populated by JS -->
+    </div>
+  </main>
+
+</div>
+
+<script>
+  // ---- MODULE DATA ----
+  const MODULES = [
+    {
+      num: 'Introduction',
+      title: 'Welcome to Unbreakable',
+      description: 'This is not your average self-defense course. This is about becoming someone who can\'t be broken — someone who knows, deep in her body, that she has a right to fight back. Lux introduces the course, her story, and why this matters.',
+      techniques: [],
+      youtube: '' // paste YouTube ID here e.g. 'ToBs1HwDf_0'
+    },
+    {
+      num: 'Module I',
+      title: 'You Are Not Helpless',
+      description: 'The first and most important realization: this stuff works. We begin with the guillotine choke — simple, devastating, and the technique that will make you feel, for the first time, what it means to be dangerous.',
+      techniques: ['Guillotine choke'],
+      youtube: ''
+    },
+    {
+      num: 'Module II',
+      title: 'Why Women Freeze',
+      description: 'If you\'ve ever frozen in a threatening situation — that was not failure. That was your nervous system doing exactly what it evolved to do. Here we break down the science of freeze, why it\'s not your fault, and how training rewires it.',
+      techniques: [],
+      youtube: ''
+    },
+    {
+      num: 'Module III',
+      title: 'Becoming Harder to Choose',
+      description: 'In 1981, convicted violent offenders were shown footage of strangers walking down a sidewalk. Within seconds they identified their targets — and they all chose the same people. It wasn\'t size or age. It was certainty. Here\'s how to change what you signal.',
+      techniques: [],
+      youtube: ''
+    },
+    {
+      num: 'Module IV',
+      title: 'Verbal Boundaries & Presence',
+      description: 'Your voice is a weapon. Predators thrive on silence — a woman who makes noise, names them in public, directs bystanders is a predator\'s worst nightmare before a single hand is raised. How to be loud, assertive, and override the freeze in your voice.',
+      techniques: [],
+      youtube: ''
+    },
+    {
+      num: 'Module V',
+      title: 'Standing Defense',
+      description: 'Most attacks begin on the feet. Someone grabs your wrist, your hair, your clothing — they want to either drag you to a second location or force you to the ground. Both are more dangerous. This module teaches you to break grips, deny control, and get out fast.',
+      techniques: ['Wrist grab escape — variation 1', 'Wrist grab escape — variation 2', 'Hair grab escape', 'Shirt grab escape — variation 1', 'Shirt grab escape — variation 2'],
+      youtube: ''
+    },
+    {
+      num: 'Module VI',
+      title: 'Fight Enders',
+      description: 'Sometimes running isn\'t enough. Susan Kuhnhausen fought a hitman for fourteen minutes — and what saved her life wasn\'t hitting him or running. It was a choke. A properly applied choke does not rely on pain compliance or someone deciding to quit. It shuts the body down.',
+      techniques: ['Rear naked choke'],
+      youtube: ''
+    },
+    {
+      num: 'Module VII',
+      title: 'Surprise Attacks',
+      description: 'Predators look for the moment your mind drifts. What if you don\'t see it coming? This module is about what to do when someone grabs you from behind with no warning — when there is no time to think, only time to act.',
+      techniques: ['Grabbed from behind — under the arms', 'Grabbed from behind — over the arms', 'Rear choke defense — option 1', 'Rear choke defense — option 2'],
+      youtube: ''
+    },
+    {
+      num: 'Module VIII',
+      title: 'Ground Defense — Part One',
+      description: 'If you end up on the ground, the fight is not over. This module covers what to do when an attacker is standing over you or between your legs — positions that feel overwhelming but are more survivable than you think.',
+      techniques: ['Technical standup', 'Technical standup + upkick', 'Ankle sweep', 'Triangle choke', 'Hip bump sweep', 'Kimura', 'Guillotine from guard', 'Get up from guard'],
+      youtube: ''
+    },
+    {
+      num: 'Module IX',
+      title: 'Ground Defense — Part Two',
+      description: 'Pinned escapes, strategic compliance, and weapon defense. Including the upkick Terra Newell used to disarm the man who came to kill her in a parking garage — knife in hand.',
+      techniques: ['Bridge solo drill', 'Escape mount — bridge and roll', 'Escaping knee on belly', 'T-shirt choke', 'Ezekiel choke', 'Upkick to disarm'],
+      youtube: ''
+    }
+  ];
+
+  const TOTAL = MODULES.length;
+  let currentModule = 0;
+  let completed = JSON.parse(localStorage.getItem('unbreakable_progress') || '[]');
+
+  function saveProgress() {
+    localStorage.setItem('unbreakable_progress', JSON.stringify(completed));
+  }
+
+  function updateProgress() {
+    const pct = Math.round((completed.length / TOTAL) * 100);
+    document.getElementById('progress-bar').style.width = pct + '%';
+    document.getElementById('progress-label').textContent = completed.length + ' of ' + TOTAL + ' complete';
+  }
+
+  function loadModule(index) {
+    currentModule = index;
+    const m = MODULES[index];
+
+    // Update sidebar
+    document.querySelectorAll('.module-btn').forEach((btn, i) => {
+      btn.classList.remove('active');
+      btn.classList.toggle('completed', completed.includes(i));
+    });
+    document.querySelector('[data-module="' + index + '"]').classList.add('active');
+
+    // Video
+    const wrap = document.getElementById('video-wrap');
+    if (m.youtube) {
+      wrap.innerHTML = '<iframe id="yt-player" src="https://www.youtube.com/embed/' + m.youtube + '?rel=0&modestbranding=1&enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe><div id="yt-end-cover" style="position:absolute;inset:0;background:#000;pointer-events:none;opacity:0;transition:opacity 0.3s;"></div>';
+      initYTOverlay();
+    } else {
+      wrap.innerHTML = '<div class="video-placeholder"><div class="video-placeholder-icon"></div><p>Video coming soon</p></div>';
+    }
+
+    // Content
+    const isCompleted = completed.includes(index);
+    const hasNext = index < TOTAL - 1;
+    const techHtml = m.techniques.length > 0
+      ? '<div class="techniques-label">Techniques covered</div><div class="techniques-chips">' +
+        m.techniques.map(t => '<span class="technique-chip">' + t + '</span>').join('') +
+        '</div>'
+      : '';
+
+    document.getElementById('module-content').innerHTML =
+      '<div class="module-eyebrow">' + m.num + '</div>' +
+      '<h1 class="module-title-large">' + m.title + '</h1>' +
+      '<p class="module-description">' + m.description + '</p>' +
+      techHtml +
+      '<div class="content-divider"></div>' +
+      '<div class="module-nav">' +
+      '<button class="btn-complete' + (isCompleted ? ' done' : '') + '" id="complete-btn" onclick="markComplete(' + index + ')">' +
+      (isCompleted ? '✓ Completed' : 'Mark as Complete') +
+      '</button>' +
+      (hasNext ? '<button class="btn-next" onclick="loadModule(' + (index + 1) + ')">Next Module →</button>' : '') +
+      '</div>';
+
+    updateProgress();
+
+    // Close sidebar on mobile
+    if (window.innerWidth <= 768) {
+      document.getElementById('sidebar').classList.remove('open');
+      document.getElementById('sidebar-overlay').classList.remove('open');
+    }
+
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function markComplete(index) {
+    if (!completed.includes(index)) {
+      completed.push(index);
+      saveProgress();
+    }
+    loadModule(index); // re-render
+  }
+
+  // ---- SEEK TO TIMESTAMP ----
+  function seekTo(seconds) {
+    var iframe = document.getElementById('yt-player');
+    if (!iframe) return;
+    // Use YouTube postMessage API to seek
+    iframe.contentWindow.postMessage(JSON.stringify({
+      event: 'command',
+      func: 'seekTo',
+      args: [seconds, true]
+    }), '*');
+    // Also update src with start time as fallback
+    var src = iframe.src;
+    src = src.replace(/&start=\d+/, '');
+    iframe.src = src + '&start=' + seconds;
+    // Scroll to top so video is visible
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // YouTube end screen overlay
+  function initYTOverlay() {
+    var cover = document.getElementById('yt-end-cover');
+    if (!cover) return;
+    var tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    var existing = document.querySelector('script[src*="youtube.com/iframe_api"]');
+    if (!existing) document.head.appendChild(tag);
+
+    function setupPlayer() {
+      if (typeof YT === 'undefined' || !YT.Player) {
+        setTimeout(setupPlayer, 200);
+        return;
+      }
+      new YT.Player('yt-player', {
+        events: {
+          onStateChange: function(e) {
+            if (e.data === YT.PlayerState.ENDED) {
+              cover.style.opacity = '1';
+              cover.style.pointerEvents = 'all';
+            }
+            if (e.data === YT.PlayerState.PLAYING) {
+              cover.style.opacity = '0';
+              cover.style.pointerEvents = 'none';
+            }
+          }
+        }
+      });
+    }
+    window.onYouTubeIframeAPIReady = setupPlayer;
+    setupPlayer();
+  }
+
+  // Mobile menu
+  document.getElementById('menu-btn').addEventListener('click', function() {
+    document.getElementById('sidebar').classList.toggle('open');
+    document.getElementById('sidebar-overlay').classList.toggle('open');
+  });
+  document.getElementById('sidebar-overlay').addEventListener('click', function() {
+    document.getElementById('sidebar').classList.remove('open');
+    this.classList.remove('open');
+  });
+
+  // Init
+  loadModule(0);
+</script>
+
+</body>
+</html>
