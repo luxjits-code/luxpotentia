@@ -30,45 +30,6 @@
     overflow-x: hidden;
   }
 
-  /* ---- WELCOME BANNER ---- */
-  #welcome-banner {
-    background: var(--red);
-    color: var(--white);
-    text-align: center;
-    padding: 12px 20px;
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-    position: relative;
-  }
-  #welcome-banner a {
-    color: var(--white);
-    font-weight: 600;
-    text-decoration: underline;
-    white-space: nowrap;
-  }
-  #banner-timer { font-weight: 600; }
-  #banner-close {
-    position: absolute;
-    right: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-    opacity: 0.7;
-    line-height: 1;
-    padding: 4px;
-  }
-  #banner-close:hover { opacity: 1; }
-
   /* ---- NAV ---- */
   nav {
     position: sticky;
@@ -807,13 +768,6 @@
 </head>
 <body>
 
-<!-- WELCOME BANNER -->
-<div id="welcome-banner">
-  <span>First-time visitor offer: Use code <strong>WELCOME20</strong> for 20% off · Expires in <span id="banner-timer">30:00</span></span>
-  <a href="https://luxjits.gumroad.com/l/unbreakable?code=WELCOME20" id="banner-claim">Claim 20% Off →</a>
-  <button id="banner-close" aria-label="Close">×</button>
-</div>
-
 <!-- NAV -->
 <nav>
   <a href="https://luxpotentia.com" class="nav-logo">← Lux Potentia</a>
@@ -825,7 +779,7 @@
   <p class="hero-eyebrow">A Women's Self-Defense Course · Lux Potentia</p>
   <h1 class="hero-title">UNBREAKABLE</h1>
   <p class="hero-title-italic">by Lux Potentia</p>
-  <p class="hero-sub">Real techniques. The science of survival. The mindset that changes everything. Eight modules that will make you a predator's worst nightmare.</p>
+  <p class="hero-sub">Real techniques. The science of survival. The mindset that changes everything. Nine modules. Over two hours of instruction. Everything changes here.</p>
   <div class="hero-actions">
     <a href="https://luxjits.gumroad.com/l/unbreakable" class="btn-primary">Enroll Now — $97</a>
     <span class="hero-price-note">One-time payment · Lifetime access · No subscription</span>
@@ -841,6 +795,10 @@
       <div style="padding:56.25% 0 0 0;position:relative;">
         <iframe id="yt-intro" src="https://www.youtube.com/embed/ToBs1HwDf_0?rel=0&modestbranding=1&showinfo=0&enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
         <div id="yt-end-cover" style="position:absolute;inset:0;background:#0a0a0a;pointer-events:none;opacity:0;transition:opacity 0.3s;"></div>
+        <!-- Cover YouTube branding bottom-right -->
+        <div style="position:absolute;bottom:0;right:0;width:220px;height:48px;background:#0a0a0a;pointer-events:none;"></div>
+        <!-- Cover YouTube channel info top-left -->
+        <div style="position:absolute;top:0;left:0;width:320px;height:60px;background:#0a0a0a;pointer-events:none;"></div>
       </div>
       <script>
         (function() {
@@ -894,8 +852,13 @@
     </div>
     <div class="stat-sep"></div>
     <div class="stat-item">
-      <div class="stat-number">8</div>
-      <div class="stat-label">Modules</div>
+      <div class="stat-number">9</div>
+      <div class="stat-label">Modules of Instruction</div>
+    </div>
+    <div class="stat-sep"></div>
+    <div class="stat-item">
+      <div class="stat-number">2h+</div>
+      <div class="stat-label">Hours of Instruction</div>
     </div>
     <div class="stat-sep"></div>
     <div class="stat-item">
@@ -931,13 +894,9 @@
         </ul>
       </div>
       <div>
-        <div class="callout-block">
-          <p>"When you become the weapon, that's something no one can take away from you. It stays with you at all times — in you, instead of sitting unreachable at the bottom of your bag."</p>
+        <div class="callout-block" style="padding:36px 40px;">
+          <p style="font-size:clamp(18px,2.5vw,26px); line-height:1.6;">"When you become the weapon, that's something no one can take away from you. It stays with you at all times — in you, instead of sitting unreachable at the bottom of your bag."</p>
           <cite>— Lux Potentia, BJJ Black Belt</cite>
-        </div>
-        <div class="callout-block">
-          <p>"They weren't looking for the physically weakest people. They were looking for uncertainty — whether someone's movement was fluid and self-possessed, or hesitant and fragmented."</p>
-          <cite>— Grayson &amp; Stein (1981), Attracting Assault: Victims' Nonverbal Cues</cite>
         </div>
       </div>
     </div>
@@ -965,7 +924,7 @@
   <div class="container-wide">
     <div style="text-align:center; max-width:560px; margin:0 auto 0;">
       <p class="section-eyebrow">The curriculum</p>
-      <h2 class="section-heading">Eight modules.<br>One outcome.</h2>
+      <h2 class="section-heading">Nine modules.<br>One outcome.</h2>
     </div>
     <div class="modules-grid">
       <div class="module-card">
@@ -1005,8 +964,14 @@
       </div>
       <div class="module-card">
         <div class="module-num">Module VIII</div>
-        <div class="module-title">Ground Defense</div>
-        <p class="module-desc">If you end up on the ground, the fight is not over. Triangle choke, hip bump sweep, the technical standup, and the upkick Terra Newell used to disarm a knife-wielding attacker. The ground is just another place to fight from.</p>
+        <div class="module-title">Ground Defense — Part One</div>
+        <p class="module-desc">If you end up on the ground, the fight is not over. Technical standup, upkick, ankle sweep, triangle choke, hip bump sweep, kimura, and guillotine from guard. The ground is just another place to fight from.</p>
+      </div>
+
+      <div class="module-card">
+        <div class="module-num">Module IX</div>
+        <div class="module-title">Ground Defense — Part Two</div>
+        <p class="module-desc">Pinned escapes, advanced strategy, and weapons defense. Bridge, bridge and roll, armbar from knee on belly, feigning compliance, the t-shirt choke, Ezekiel choke, and the upkick Terra Newell used to disarm her knife-wielding attacker.</p>
       </div>
     </div>
   </div>
@@ -1038,6 +1003,12 @@
         <p class="story-text">Ambushed alone in a parking garage by a man with a knife who intended to kill her. On the ground, injured, she threw an upkick at the hand holding the knife. It flew free. She gained control of it and survived. Violence in real life is chaotic — she was hurt, the fight was messy. But she survived because she fought back. You will learn the exact technique she used.</p>
         <span class="story-technique">Technique: Upkick Disarm — Module VIII</span>
       </div>
+      <div class="module-card">
+        <div class="module-num">Conclusion</div>
+        <div class="module-title">The Power of Belief</div>
+        <p class="module-desc">Belief is not magical thinking. It's not delusion. It's the thing that carries you from it almost working to it actually working. Susan Kuhnhausen believed she had a chance — and so she fought, and so she survived. This is what you carry with you now.</p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1091,7 +1062,7 @@
 
       <div class="tech-category">
         <div class="tech-category-label">Ground Defense</div>
-        <div class="tech-category-module">Module VIII</div>
+        <div class="tech-category-module">Module VIII &amp; IX</div>
         <ul class="tech-list">
           <li><span class="tech-num">16</span> Technical standup</li>
           <li><span class="tech-num">17</span> Upkick</li>
@@ -1104,7 +1075,7 @@
 
       <div class="tech-category">
         <div class="tech-category-label">Pinned &amp; Mounted Defense</div>
-        <div class="tech-category-module">Module VIII</div>
+        <div class="tech-category-module">Module IX</div>
         <ul class="tech-list">
           <li><span class="tech-num">22</span> Bridge escape from mount</li>
           <li><span class="tech-num">23</span> Bridge and roll</li>
@@ -1114,7 +1085,7 @@
 
       <div class="tech-category">
         <div class="tech-category-label">Weapons &amp; Special Situations</div>
-        <div class="tech-category-module">Module VIII</div>
+        <div class="tech-category-module">Module IX</div>
         <ul class="tech-list">
           <li><span class="tech-num">25</span> Upkick weapon disarm<br><span style="font-family:'Josefin Sans',sans-serif; font-size:10px; font-style:normal; color:var(--red); letter-spacing:0.1em;">The technique Terra Newell used to survive a knife attack</span></li>
         </ul>
@@ -1209,7 +1180,7 @@
         <div class="price-amount"><sup>$</sup>97</div>
         <p class="price-note">One-time payment · Instant access · Watch forever</p>
         <ul class="price-includes">
-          <li>8 full video modules — technique + psychology</li>
+          <li>9 modules + introduction &amp; closing — over 2 hours of instruction</li>
           <li>Chokes, standing defense, ground defense, surprise attacks</li>
           <li>The freeze response — why it happens and how to override it</li>
           <li>Predator targeting research and how to change what you signal</li>
@@ -1241,39 +1212,7 @@
 </footer>
 
 <script>
-  // ---- COUNTDOWN TIMER ----
-  (function() {
-    const STORAGE_KEY = 'unbreakable_timer_end';
-    const DURATION = 30 * 60 * 1000;
-    let endTime = localStorage.getItem(STORAGE_KEY);
-    if (!endTime) {
-      endTime = Date.now() + DURATION;
-      localStorage.setItem(STORAGE_KEY, endTime);
-    } else {
-      endTime = parseInt(endTime);
-    }
 
-    const timerEl = document.getElementById('banner-timer');
-    const banner = document.getElementById('welcome-banner');
-    const closeBtn = document.getElementById('banner-close');
-
-    closeBtn.addEventListener('click', function() {
-      banner.style.display = 'none';
-    });
-
-    function update() {
-      const remaining = endTime - Date.now();
-      if (remaining <= 0) {
-        banner.style.display = 'none';
-        return;
-      }
-      const m = Math.floor(remaining / 60000);
-      const s = Math.floor((remaining % 60000) / 1000);
-      timerEl.textContent = m + ':' + String(s).padStart(2, '0');
-      setTimeout(update, 1000);
-    }
-    update();
-  })();
 </script>
 
 </body>
