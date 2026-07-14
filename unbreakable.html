@@ -767,42 +767,28 @@
   }
   /* ---- DESKTOP OPTIMIZATION ---- */
   @media (min-width: 800px) {
+    /* Global max width */
+    body { max-width: 1100px; margin: 0 auto; }
+
+    /* Hero section padding */
+    section[style*="padding:56px 24px 48px"] {
+      padding: 72px 80px 64px !important;
+    }
+
     /* Hero photo */
     .hero-photo { max-height: 600px; }
-    .hero-photo img { height: 600px; object-fit: cover; object-position: center 20%; }
-
-    /* Constrain all full-width photos on desktop */
-    section img[style*="width:100%"],
-    div img[style*="width:100%"] {
-      max-height: 600px;
-      object-fit: cover;
-    }
+    .hero-photo img { height: 600px; object-fit: cover; object-position: center 30%; }
 
     /* Warner Bros photos */
-    img[src="photo 2.jpg"],
-    img[src="Photo 1.jpg"] {
-      max-height: 550px;
-      object-fit: cover;
-      object-position: center 25%;
-    }
+    img[src="photo 2.jpg"] { max-height: 600px; object-fit: cover; object-position: center 30%; }
+    img[src="Photo 1.jpg"] { max-height: 520px; object-fit: cover; object-position: center top; }
+    img[src="photo option 1.png"] { max-height: 560px; object-fit: cover; object-position: center top; }
 
-    img[src="photo option 1.png"] {
-      max-height: 580px;
-      object-fit: cover;
-      object-position: center top;
-    }
+    /* Videos centered on desktop */
+    video { max-width: 680px; display: block; margin: 0 auto; }
 
-    /* Videos max width on desktop */
-    video {
-      max-width: 700px;
-      display: block;
-      margin: 0 auto;
-    }
-
-    /* Content sections max width */
-    .container, .container-wide {
-      max-width: 900px;
-    }
+    /* Sections padding on desktop */
+    nav { padding: 20px 80px; }
   }
 </style>
 </head>
@@ -838,8 +824,8 @@
 </section>
 
 <!-- HERO PHOTO — full width below title -->
-<div style="width:100%; overflow:hidden; max-height:500px;">
-  <img src="photo 2.jpg" alt="Lux Potentia demonstrating ground defense at Warner Bros NYC" style="width:100%; display:block; height:500px; object-fit:cover; object-position:center 25%; @media(min-width:800px){object-position:center 20%}">
+<div class="hero-photo" style="width:100%; overflow:hidden; max-height:500px;">
+  <img src="photo 2.jpg" alt="Lux Potentia demonstrating ground defense at Warner Bros NYC" style="width:100%; display:block; height:500px; object-fit:cover; object-position:center 25%;">
 </div>
 
 <!-- STAT BAR -->
